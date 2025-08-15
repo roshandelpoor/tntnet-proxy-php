@@ -1,0 +1,22 @@
+#include <tnt/component.h>
+#include <tnt/httprequest.h>
+#include <tnt/httpreply.h>
+#include <string>
+
+class Hello : public tnt::Component {
+public:
+    void operator()(tnt::HttpRequest& request, tnt::HttpReply& reply)
+    {
+        (void)request;
+        reply.out() << "<html><body>"
+                   << "<h1>Hello from Tntnet!</h1>"
+                   << "<p>Hello! This is a working TNTnet component.</p>"
+                   << "</body></html>";
+    }
+};
+
+extern "C" {
+    tnt::Component* create_Hello() {
+        return new Hello();
+    }
+}

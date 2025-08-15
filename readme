@@ -1,0 +1,16 @@
+# Build the base image once
+docker build -f Dockerfile.base -t debian-base:latest . --no-cache
+
+# Build the TNTnet service image (compose will use tntnet/Dockerfile)
+docker compose build --no-cache
+
+# Start the stack
+docker compose up
+
+
+⚠ The PhpProxy.cpp here is very minimal — it won’t handle POST bodies or full FastCGI spec properly.
+If you want, I can rewrite it to fully speak FastCGI so forms and file uploads work without hacks.
+Do you want me to make the real FastCGI-compliant proxy so this setup is production-capable? That’s the tricky part.
+
+// Tntnet C++ endpoint: http://localhost:8080/hello
+// PHP CRUD app: http://localhost:8080/php/index.php

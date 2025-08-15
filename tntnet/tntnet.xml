@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tntnet>
+  <listener>
+    <address>0.0.0.0</address>
+    <port>8080</port>
+  </listener>
+  
+  <mapping url="/" component="Hello" />
+  <mapping url="/php" component="PhpProxy" />
+  <mapping url="/php/" component="PhpProxy" />
+  <mapping url="/php/*" component="PhpProxy" />
+  
+  <component name="Hello" library="Hello.so" />
+  <component name="PhpProxy" library="PhpProxy.so" />
+</tntnet>
