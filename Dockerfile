@@ -2,6 +2,13 @@ FROM debian-base:latest
 
 RUN apt-get update && apt-get install -y \
     tntnet \
+    libtntnet13 \
+    libcxxtools10 \
+    libtntnet-dev \
+    libcxxtools-dev \
+    build-essential \
+    pkg-config \
+    wget \
     && rm -rf /var/lib/apt/lists/*
 
 # Create tntnet user and group
